@@ -7,3 +7,7 @@ steps:
   args: ['run', 'build', '--', '--prod']
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['-m', 'rsync', '-r', 'dist/angular-demo/', 'gs://maaz-bucket']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  logsBucket: gs://maaz-bucket
