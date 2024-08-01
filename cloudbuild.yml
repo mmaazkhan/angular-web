@@ -4,8 +4,10 @@ steps:
   args:
   - '-c'
   - |
+    set -e
+    npm install -g @angular/cli
     npm install
-    npm run build -- --prod
+    npm run build -- --configuration production
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['-m', 'rsync', '-r', 'dist/angular-demo/', 'gs://maaz-bucket']
 
