@@ -10,4 +10,3 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-  logsBucket: gs://maaz-bucket
