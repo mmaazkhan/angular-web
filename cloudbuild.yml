@@ -1,10 +1,11 @@
 steps:
 - name: 'node:14'
-  entrypoint: 'npm'
-  args: ['install']
-- name: 'node:14'
-  entrypoint: 'npm'
-  args: ['run', 'build', '--', '--prod']
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    npm install
+    npm run build -- --prod
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['-m', 'rsync', '-r', 'dist/angular-demo/', 'gs://maaz-bucket']
 
